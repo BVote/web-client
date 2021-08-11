@@ -72,6 +72,7 @@ const SignUp = props => {
             {/* if data is loading, display a loading message */}
             { loading && <p>loading...</p> }
             {/* if there is an error, display error message */}
+            <h1>error.msg</h1>
             { console.log(error) }
             { error && <p>Error- Account creation failed</p> }
         </React.Fragment>

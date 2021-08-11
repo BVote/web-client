@@ -18,6 +18,7 @@ const MyNotes = () => {
     }
 
     if(error) {
+        console.log("hello from here");
         return <p>{`Error- ${error.message}`}</p>;
     }
     // if the query is successful and there are notes, return the feed of notes

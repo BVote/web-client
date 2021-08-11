@@ -4,12 +4,16 @@ import { useQuery, gql } from "@apollo/client";
 import { Link, withRouter } from "react-router-dom";
 
 import logo from "../img/logo.svg";
+import image2vector from "../img/image2vector.svg";
 import ButtonAsLink from "./ButtonAsLink";
 import { getUserLoggingState } from "../gql/query";
-
+import LightBorderedButton from "../components/LightBorderedButton";
+import ColoredCircle from "../components/ColoredCircle";
 
 const UserState = styled.div`
     margin-left: auto;
+    margin-right: 30px;
+
 `;
 
 const HeaderBar = styled.header`
@@ -28,6 +32,7 @@ const LogoText = styled.h1`
     margin: 0;
     padding: 0;
     display: inline;
+    // font-weight:normal;
 `;
 
 const Header = (props) =>  {
@@ -37,8 +42,12 @@ const Header = (props) =>  {
 
     return (
         <HeaderBar>
-            <img src={logo} alt="Nota Logo" height="40" />
-            <LogoText> Nota </LogoText>
+            <Link to={"/"} style={{textDecoration: "none"}} title="BVote, the confident voting platform">
+                {/* <img src={image2vector}  alt="BVote Logo" height="40" /> */}
+                <LogoText> 🗳BVote </LogoText> 
+                {/* <LogoText> 🗳<i>Bvote</i> </LogoText>  */}
+            </Link>
+            
             {/* if logged in, display a logout link else display a sign in options */}
             <UserState>
                 {
@@ -58,8 +67,10 @@ const Header = (props) =>  {
                         </ButtonAsLink>
                     ) : (
                         <p>
-                            <Link to={"/signin"}>Sign In</Link> or {" "}
-                            <Link to={"/signup"}>Sign Up</Link>
+                            <ColoredCircle background="green" />     {"   "}
+                            <Link to={"/apropos"} title="Apropos"><b>APROPOS</b></Link>  or  {"  "}
+                            <Link to={"/faqs"} title="Frequently Asked Questions"><b>FAQS </b></Link>
+                            
                         </p>
                     )
                 }

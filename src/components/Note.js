@@ -41,6 +41,7 @@ const Note = ({ note }) => {
         return <p>Loading...</p>;
     }
     if(error) {
+        console.log("Come and see in Note.js");
         return <p>{`Error!- ${error.message}`}</p>;
     }
 

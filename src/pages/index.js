@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import Home from "./home";
@@ -12,9 +12,14 @@ import signIn from "./signin";
 import CreateNote from "./createnote";
 import { getUserLoggingState } from "../gql/query";
 import EditNote from "./editnote";
-import Null from "../components/Null";
-
-
+import Identify from "./identify";
+import Apropos from "./apropos";
+import Faqs from "./faqs";
+import IdentificationSuccess from "./success";
+import Candidates from "./candidates";
+import Verification from "./verify";
+import NotFound from "./notfound";
+import Totos from "./totos";
 
 // add the PrivateRoute component below our `Pages` component
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -59,18 +64,25 @@ const Pages = () => {
         <Router>
             {/* wrap our routes withing the Layout component */}
             <Layout>
+                <Switch>
                 <Route exact path="/" component={Home} />
-                <PrivateRoute path="/null" component={Null} />
                 {/* <PrivateRoute path="/mynotes" component={MyNotes} /> */}
                 {/* <PrivateRoute path="/favorites" component={Favorites} /> */}
                 <PrivateRoute path="/mynotes" component={MyNotes} />
                 <PrivateRoute path="/favorites" component={Favorites} />
                 <Route path="/note/:id" component={NotePage} />
-                <Route path="/signup" component={SignUp} />
-                <Route path="/signin" component={signIn} />
+                <Route path="/identify" component={Identify} />
+                <Route path="/faqs" component={Faqs} />
+                <Route path="/apropos" component={Apropos} />
+                <Route path="/identification-successed/" component={IdentificationSuccess} />
+                <Route path="/candidates/" component={Candidates} />
+                <Route path="/totos/" component={Totos} />
+                <Route path="/vote-verification/" component={Verification} />
                 {/* <PrivateRoute path="/create" component={CreateNote} /> */}
                 <PrivateRoute path="/create" component={CreateNote} />
                 <PrivateRoute path="/edit/:id" component={EditNote} />
+                <Route  component={NotFound} />
+                </Switch>
             </Layout>
 
         </Router>

@@ -7,7 +7,8 @@ import GlobalStyle from "./components/GlobalStyle";
 import Pages from "./pages";
 
 
-const uri = process.env.API_URI;
+const uri = process.env.BVOTE_SERVER;
+console.log("uri", uri);
 const httpLink = createHttpLink({ uri });
 const cache = new InMemoryCache();
 

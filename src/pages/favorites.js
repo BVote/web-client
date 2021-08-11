@@ -19,7 +19,6 @@ const Favorites = () => {
     }
 
     if(error) {
-        console.log("there is an error");
         return <p>{`Error- ${error.message}`}</p>;
     }
 

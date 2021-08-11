@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import Button from "./Button";
 
+import Message from "../var/message";
+
 const Wrapper = styled.div`
     height: 100%;
 `;

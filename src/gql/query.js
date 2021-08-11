@@ -1,19 +1,19 @@
 import { gql } from "@apollo/client";
 
 const getNote = gql`
-query note($id: ID!) {
-    note(id: $id) {
-        id
-        createdAt
-        content
-        favoriteCount
-        author {
-            username
+    query note($id: ID!) {
+        note(id: $id) {
             id
-            avatar
+            createdAt
+            content
+            favoriteCount
+            author {
+                username
+                id
+                avatar
+            }
         }
     }
-}
     
 `;
 
@@ -122,4 +122,36 @@ const getCurrentUser = gql`
 `;
 
 
-export { getNote, getNotes, getUserLoggingState, getCurrentUserNotes, getCurrentUserFavorites, getCurrentUser };         
+const getCitizenIdentity = gql`
+    query citizen($email: String!, $cid: String!) {
+        identify (email: $email, cid: $cid) {
+            cid
+            firstnames
+            lastnames
+            emails
+            photos
+            isMajor
+        }
+
+    }
+`;
+
+const getHello = gql`
+    query hello {
+        hello
+    }
+`;
+
+const getCandidates = gql`
+    query candidates {
+        getCandidates 
+    }
+`;
+
+const getLoremIpsum = gql`
+    query lipsum {
+        getLoremIpsum 
+    }
+`;
+
+export { getNote, getNotes, getUserLoggingState, getCurrentUserNotes, getCurrentUserFavorites, getCurrentUser, getCitizenIdentity, getHello, getCandidates, getLoremIpsum };         

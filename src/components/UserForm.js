@@ -36,7 +36,7 @@ const UserForm = props => {
     return (
         <Wrapper>
             {/* display the appropriate form header */}
-            { props.formType === "signup" ? <h2>Sign Up</h2> : <h2>Sign In</h2> }
+            { props.formType === "signup" ? <h2>Sign UpIIIII</h2> : <h2>Sign InIIIIII</h2> }
             {/* perform the mutation when the user submit the form */}
             <Form onSubmit={
                 e => {
